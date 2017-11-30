@@ -14,6 +14,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" for quick esc from insert/visual mode
+inoremap jj <ESC>
+
 " so I can see whitespaces and tab" so I can see whitespaces and tabs
 set list listchars=tab:»·,trail:·
 
