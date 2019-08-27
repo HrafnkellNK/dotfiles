@@ -1,0 +1,105 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "make all",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "command": "make",
+            "type": "shell",
+            "args": [
+                "all"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc",
+            "dependsOn": "make clean"
+        },
+        {
+            "label": "make clean",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean"
+            ],
+            "group": "build",
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "debug para",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "type": "shell",
+            "command": "mode=debug",
+            "args": [
+                "make",
+                "parallel"
+            ],
+            "group": "build",
+            "problemMatcher": "$gcc",
+            "dependsOn": "make clean"
+        },
+        {
+            "label": "debug seq",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "type": "shell",
+            "command": "mode=debug",
+            "args": [
+                "make",
+                "sequential"
+            ],
+            "group": "build",
+            "problemMatcher": "$gcc",
+            "dependsOn": "make clean"
+
+        },
+        {
+            "label": "run tests",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "type": "shell",
+            "command": "./student/unit_test",
+            "args": [],
+            "group": "test",
+            "problemMatcher": "$gcc",
+            "dependsOn": "make test"
+        },
+    ]
+}
