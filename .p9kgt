@@ -79,7 +79,7 @@ then
     POWERLEVEL9K_CUSTOM_OS_ICON_BACKGROUND='red'
     POWERLEVEL9K_CUSTOM_OS_ICON_FOREGROUND='white'
     # https://github.com/bhilburn/powerlevel9k/tree/next#customizing-prompt-segments
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_os_icon ssh context dir_writable dir vcs)
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_os_icon virtualenv ssh context dir_writable dir vcs)
     POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs )
 
     # Set 'context' segment colors

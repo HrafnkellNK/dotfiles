@@ -20,8 +20,9 @@ HIST_STAMPS="dd.mm.yyyy"
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  tmux
+  #git
+  #tmux
+  #virtualenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -32,10 +33,10 @@ source $ZSH/oh-my-zsh.sh
 BASE16_SHELL_SET_BACKGROUND=false
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+# BASE16_SHELL="$HOME/.config/base16-shell/"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # USER CONFIGURATION
 
@@ -49,10 +50,11 @@ fi
 alias ll='exa -lh --git'
 alias la='exa -lha --git'
 alias tree='exa --tree --level=2'
-alias up='sudo apt update && sudo apt upgrade'
+alias up='sudo apt update && sudo apt upgrade -y'
 alias please='sudo'
 alias top='htop'
 alias its='source ~/Documents/Work/envs/its/bin/activate'
+alias grep='grep -i'
 
 # startup scripts
 neofetch
