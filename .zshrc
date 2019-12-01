@@ -2,6 +2,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/hrafnkell/.oh-my-zsh"
 
+
+# NEEDS TO COME BEFORE LOADING THE ZSH_THEME
+# Powerlevel9k Rice Resources: 
+# https://medium.com/@alex285/get-powerlevel9k-the-most-cool-linux-shell-ever-1c38516b0caa
+# https://github.com/Powerlevel9k/powerlevel9k/wiki/Show-Off-Your-Config
+source $HOME/.p9kgt
+
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
@@ -19,12 +26,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# COLOR AND POWERLINE CONFIGURAITON
-
-# Powerlevel9k Rice Resources: 
-# https://medium.com/@alex285/get-powerlevel9k-the-most-cool-linux-shell-ever-1c38516b0caa
-# https://github.com/Powerlevel9k/powerlevel9k/wiki/Show-Off-Your-Config
-source $HOME/.p9kgt
+# COLOR CONFIGURAITON
 
 # needs to be before base16
 BASE16_SHELL_SET_BACKGROUND=false
@@ -61,8 +63,6 @@ export AIRPORT=BIVM
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-
 
 
 
