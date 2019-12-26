@@ -1,0 +1,114 @@
+conky.config = {
+-- Conky settings
+	background = false,
+	update_interval = 1,
+
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+
+	override_utf8_locale = true,
+
+	double_buffer = true,
+	no_buffers = true,
+
+	text_buffer_size = 2048,
+--imlib_cache_size 0
+
+	temperature_unit = 'celsius',
+
+-- Window specifications
+	own_window_class = 'Conky',
+	own_window = true,
+	own_window_type = 'normal',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+
+	border_inner_margin = 0,
+	border_outer_margin = 0,
+
+	-- minimum_width = 520, minimum_height = 600,
+	-- maximum_width = 520,
+	minimum_width = 1220, minimum_height = 1600,
+	maximum_width = 1220,
+
+	alignment = 'top_middle',
+	gap_x = -350,
+	gap_y = 50,
+
+-- Graphics settings
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+
+	default_color = 'gray',
+	default_shade_color = 'red',
+	default_outline_color = 'green',
+
+-- Text settings
+	use_xft = true,
+	override_utf8_locale = true,
+	font = 'Play:normal:size=7',
+	xftalpha = 0.9,
+	uppercase = false,
+
+	default_color = '#E1E4E7',
+	color0 = '#5294E2',
+	color1 = '#E1E4E7',
+	color2 = '#E2B052',
+	color3 = '#E25252',
+	color4 = '#52E263',
+
+-- Lua Load
+	lua_load = '~/.config/conky/rings-v1.3.1.lua',
+	lua_draw_hook_pre = 'ring_stats',
+
+};
+
+conky.text = [[
+${font Play:normal:size=14}${voffset 36}${color2}${goto 240}TEMP${alignr 840}${color2}${acpitemp} °C
+${font Play:normal:size=14}${voffset 8}${goto 240}${color3}CPU All${alignr 840}${color3}${cpu cpu0}%
+${font Play:normal:size=14}${voffset 12}${goto 240}${color0}CPU 1${alignr 840}${color1}${cpu cpu1}%
+${font Play:normal:size=14}${voffset 12}${goto 240}${color0}CPU 2${alignr 840}${color1}${cpu cpu2}%
+${font Play:normal:size=14}${voffset 12}${goto 240}${color0}CPU 3${alignr 840}${color1}${cpu cpu3}%
+${font Play:normal:size=14}${voffset 9}${goto 240}${color0}CPU 4${alignr 840}${color1}${cpu cpu4}%
+${voffset 60}${font Play:normal:size=14}${color1}${top name 1}${alignr 780}${top cpu 1}%
+${font Play:normal:size=14}${color1}${top name 2}${alignr 780}${top cpu 2}%
+${font Play:normal:size=14}${color1}${top name 3}${alignr 780}${top cpu 3}%
+${font Play:normal:size=14}${color1}${top name 4}${alignr 780}${top cpu 4}%
+${font Play:normal:size=14}${color1}${top name 5}${alignr 780}${top cpu 5}%
+${voffset 16}${font Michroma:size=19}${color0}${goto 80}${voffset 20}CPU
+
+${font Michroma:size=19}${color0}${goto 1010}${voffset 65}MEMORY
+${goto 770}${voffset 0}${font Play:normal:size=14}${color1}${top_mem name 1}${alignr 40}${top_mem mem_res 1}
+${goto 770}${font Play:normal:size=14}${color1}${top_mem name 2}${alignr 40}${top_mem mem_res 2}
+${goto 770}${font Play:normal:size=14}${color1}${top_mem name 3}${alignr 40}${top_mem mem_res 3}
+${goto 770}${font Play:normal:size=14}${color1}${top_mem name 4}${alignr 40}${top_mem mem_res 4}
+${goto 770}${font Play:normal:size=14}${color1}${top_mem name 5}${alignr 40}${top_mem mem_res 5}
+${font Play:normal:size=14}${voffset 60}${goto 870}${color1}${swapmax} / ${color1}${swap}${alignr 40}${color0}SWAP
+${font Play:normal:size=14}${voffset 5}${goto 870}${color1}${memmax} / ${color1}${mem}${color1}${alignr 40}${color0}RAM
+
+${font Play:normal:size=14}${goto 80}${voffset -190}${color0}Root${color1}${alignr 770}${fs_used /}${color1} / ${color1}${fs_size /}
+${font Play:normal:size=14}${goto 80}${voffset 8}${color0}Home${alignr 770}${color1}${fs_used /home} / ${fs_size /home}
+${font Play:normal:size=14}${goto 80}${voffset 8}${color0}Boot${alignr 770}${color1}${fs_used /boot} / ${fs_size /boot}
+${font Michroma:size=19}${color0}${goto 160}${voffset 60}HARD  DRIVE
+
+${font Michroma:size=19}${color0}${voffset 40}${goto 770}INTERNET  INFO
+${if_existing /proc/net/route enx3ce1a1522495}${font Play:normal:size=14}${goto 700}${voffset 55}${color1}${upspeed enx3ce1a1522495} / ${color1}${totalup enx3ce1a1522495}${alignr 300}${color0}Up
+${font Play:normal:size=14}${goto 700}${voffset 6}${color1}${downspeed enx3ce1a1522495} / ${color1}${totaldown enx3ce1a1522495}${alignr 273}${color0}Down
+${font Play:normal:size=14}${goto 700}${voffset 40}Local IP${goto 900}${color1}${addr enx3ce1a1522495}
+${else}${if_existing /proc/net/route enp0s31f6}${font Play:normal:size=14}${goto 700}${voffset 55}${color1}${totalup enp0s31f6} / ${color1}${upspeed enp0s31f6}${alignr 300}${color1}Up
+${font Play:normal:size=14}${goto 700}${voffset 6}${color1}${totaldown enp0s31f6} / ${color0}${downspeed enp0s31f6}${alignr 273}${color0}Down
+${font Play:normal:size=14}${goto 700}${voffset 40}${color0}Local IP${goto 900}${color1}${addr enp0s31f6}${endif}${endif}
+${font Play:normal:size=14}${goto 700}${voffset -20}${color0}Public IP${goto 900}${color1}${execi 3600 wget -qO - ifconfig.co | sed -e 's/[^[:digit:]\|.]//g'}
+
+${font Michroma:size=15}${alignc 285}${voffset -110} ${color0}${time %d %B %Y}
+${font Michroma:size=23}${alignc 280}${color1}${voffset -5}${time %H}:${time %M}
+
+${font Michroma:size=15}${color0}${goto 725}${voffset 60}BATTERY
+${font Play:size=14}${color0}${goto 670}${voffset 20}${color1}${battery_percent BAT0}%
+
+${font Michroma:size=14}${color0}${goto 850}Uptime${font Play:normal:size=13}${color1}${alignr 100}${voffset 5}${uptime_short}
+${font Michroma:size=14}${color0}${goto 850}Kernel${font Play:normal:size=13}${color1}${alignr 100}${voffset 2}${kernel}]];
